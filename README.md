@@ -14,11 +14,11 @@ Blog overview:
 
 The process of finding the K nearest neighbors - kNN of all the dataset's objects consists of, given an integer number k, calculating for each point of the dataset the k most similar objects. We can check Figure 1, an abstract example of this process, to understand the main idea of the algorithm.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7208b76f-c65f-45b6-b6ee-7d9a0c95cfbf/Untitled.png)
+![Untitled](https://github.com/gorlando04/CPU_kNNG_Construction/assets/91696970/98b95dad-9f4d-41e0-921f-0a51b123b7cc)
 
 Furthermore, the task of finding the kNN can be done by building the k  nearest neighbor graph - kNNG, that is, a graph that connects the kNN of each object. These connections are made with edges that contain the distance between the objects. We can understand a kNNG by checking Figure 2, where an abstract example is shown.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b8c9a76b-323b-455c-a9ab-0d66e5e931b5/Untitled.png)
+![Untitled (1)](https://github.com/gorlando04/CPU_kNNG_Construction/assets/91696970/c77b3a3a-32f1-48d8-8411-bb49eae52128)
 
  
 
@@ -28,7 +28,8 @@ Thus, after understanding the kNNG problem, we need to study the issues that we 
 
 First, the algorithm's main problem relies on the problem's asymptotical computational complexity, which is O(n²), where n is the number of samples in the dataset resulting from the comparison of all data points. Therefore, when ‘’n’’ is large enough, modeling the kNNG becomes impracticable in computational for most ordinary computational systems. Also, in terms of memory, when the brute force kNNG algorithm is run, a (n,k) matrix is required to store all the neighbors. Thus, constructing the exact kNNG, i.e., comparing all the points of the dataset between them, is computationally impracticable as the dataset gets more extensive. So, we have a clear boundary in which we might struggle to construct the exact kNNG for massive datasets. A possible approach to solve this issue could be using approximate solutions; however, this solution will not be studied in this blog, as we want to check for exact solutions. Finally, it is possible to check how different complexities behave with varying numbers of samples in Figure 3.
 
-![tabela1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83d42e21-f855-487f-b3f8-b2319084d152/tabela1.png)
+![tabela1](https://github.com/gorlando04/CPU_kNNG_Construction/assets/91696970/d60eb2be-c74e-4333-86e9-afb7a05756b8)
+
 
 Additionally, constructing the kNNG also has another considerable problem: the Hubness Phenomenon, which is widely studied and discussed by many researchers in computing. This phenomenon relies on the idea that for data with high dimensionality, when we perform the kNN algorithm, data points may become skewed, creating hubs, which results in specific points appearing in the kNN list more often than other data points. Therefore we have to be careful with high-dimensionality data to avoid creating hubs.
 
